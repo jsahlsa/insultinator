@@ -1,0 +1,26 @@
+{
+  "name": "insultinator",
+  "version": "1.0.0",
+  "description": "online version of 90s toy ![image of an insultinator](https://external-preview.redd.it/EXsppm5GtK0_0VtE4xFMzSmG35csJGLp0GV_JXJpOtU.jpg?auto=webp&s=9eefdb58350e4304322920f8927e2c0ddf98449e)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsahlsa/insultinator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsahlsa/insultinator/issues"
+  },
+  "homepage": "https://github.com/jsahlsa/insultinator#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.24.0",
+    "prettier": "^2.3.2"
+  }
+}
