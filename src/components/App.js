@@ -41,13 +41,18 @@ export default function App() {
   }
 
   let lastIndex;
+  let sound;
 
   function playRandom(array) {
+    if (sound) {
+      sound.currentTime = 0;
+      sound.pause();
+    }
     let idx = randomIndex(array);
     if (lastIndex === idx) {
       return playRandom(array);
     }
-    let sound = new Audio(array[idx]);
+    sound = new Audio(array[idx]);
     console.log(sound, idx, lastIndex);
     lastIndex = idx;
     sound.currentTime = 0;
@@ -57,7 +62,6 @@ export default function App() {
   return (
     <div className="app-wrapper">
       <div className="app-backgrounds green">
-        <audio controls src={weasel}></audio>
       </div>
       <div className="app-backgrounds black">
         <div className="insult-wrapper">

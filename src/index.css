@@ -1,3 +1,10 @@
+:root {
+  --pink: hsl(346 91% 59%);
+  --blue: hsl(219 70% 30%);
+  --yellow: hsl(43 79% 53%);
+  --orange: hsl(8 98% 62%);
+}
+
 html,
 body {
   padding: 0;
@@ -45,13 +52,28 @@ button {
   margin-right: 2em;
 }
 
+/* insult buttons styles */
 .insults {
-  width: 80px;
-  height: 15px;
-  border-radius: 8px;
-  box-shadow: inset 0 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 0 2px 0 rgba(0, 0, 0, 0.4), inset 0 0 2px 3px rgba(0, 0, 0, 0.05),
-    1px 1px 2px 0 rgba(0, 0, 0, 0.25);
+  width: 70px;
+  height: 20px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 2px 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 3px 0 rgba(0, 0, 0, 0.4), inset 0 0 3px 5px rgba(0, 0, 0, 0.05),
+    2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+  transform: rotate(10deg);
+}
+
+.intro {
+  background: var(--pink);
+}
+.insult-1 {
+  background: var(--blue);
+}
+.insult-2 {
+  background: var(--yellow);
+}
+.closing {
+  background: var(--orange);
 }
 
 .green {
