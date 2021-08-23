@@ -28,18 +28,55 @@ import weird from './sounds/weird.mp3';
 import wimp from './sounds/wimp.mp3';
 import wormy from './sounds/wormy.mp3';
 
+let intros = [completely, ultimate, totally, gigantic, real, big, super1];
+let firstInsults = [gross, creepy, ugly, slimy, weird, slobbering, stinky];
+let secondInsults = [wormy, boring, obnoxious, greasy, sticky, wacky, creepy2];
+let closers = [bonehead, loser, geek, dweeb, wimp, weasel, nerd];
+
 export default function App() {
+  function randomIndex(array) {
+    let length = array.length;
+    let idx = Math.floor(Math.random() * length);
+    return idx;
+  }
+
+  let lastIndex;
+
+  function playRandom(array) {
+    let idx = randomIndex(array);
+    if (lastIndex === idx) {
+      return playRandom(array);
+    }
+    let sound = new Audio(array[idx]);
+    console.log(sound, idx, lastIndex);
+    lastIndex = idx;
+    sound.currentTime = 0;
+    sound.play();
+  }
+
   return (
-    <div class="app-wrapper">
+    <div className="app-wrapper">
       <div className="app-backgrounds green">
         <audio controls src={weasel}></audio>
       </div>
       <div className="app-backgrounds black">
         <div className="insult-wrapper">
-          <button className="insults intro"></button>
-          <button className="insults insult-1"></button>
-          <button className="insults insult-2"></button>
-          <button className="insults closing"></button>
+          <button
+            className="insults intro"
+            onClick={() => playRandom(intros)}
+          ></button>
+          <button
+            className="insults insult-1"
+            onClick={() => playRandom(firstInsults)}
+          ></button>
+          <button
+            className="insults insult-2"
+            onClick={() => playRandom(secondInsults)}
+          ></button>
+          <button
+            className="insults closing"
+            onClick={() => playRandom(closers)}
+          ></button>
         </div>
       </div>
     </div>
