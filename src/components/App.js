@@ -55,14 +55,13 @@ export default function App() {
     sound = new Audio(array[idx]);
     console.log(sound, idx, lastIndex);
     lastIndex = idx;
-    sound.currentTime = 0;
+
     sound.play();
   }
 
   return (
     <div className="app-wrapper">
-      <div className="app-backgrounds green">
-      </div>
+      <div className="app-backgrounds green"></div>
       <div className="app-backgrounds black">
         <div className="insult-wrapper">
           <button
