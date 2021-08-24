@@ -1,13 +1,13 @@
 :root {
-  --pink: hsl(346, 91%, 54%, 1);
+  --pink: hsl(346, 90%, 54%, 1);
   --blue: hsl(219, 70%, 25%, 1);
   --yellow: hsl(43, 79%, 48%, 1);
-  --orange: hsl(8, 98%, 57%, 1);
+  --orange: hsl(8, 90%, 57%, 1);
   --green: hsla(126, 80%, 33%, 1);
-  --pink-on: hsl(346, 91%, 59%, 1);
-  --blue-on: hsl(219, 70%, 30%, 1);
-  --yellow-on: hsl(43, 79%, 53%, 1);
-  --orange-on: hsl(8, 98%, 62%, 1);
+  --pink-on: hsl(346, 100%, 59%, 1);
+  --blue-on: hsl(219, 80%, 30%, 1);
+  --yellow-on: hsl(43, 89%, 53%, 1);
+  --orange-on: hsl(8, 100%, 62%, 1);
   --green-on: hsla(126, 80%, 42%, 1);
   --white-off: hsl(0, 0%, 70%);
   --shadow: inset 2px 2px 6px 0 rgba(255, 255, 255, 0.6),
@@ -42,10 +42,9 @@ button {
 .app-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  background: center / contain no-repeat url('/components/images/bg.svg');
   height: 500px;
   width: 400px;
-  box-shadow: 0 0 20px black;
-  border-radius: 30px;
 }
 
 .app-backgrounds {
@@ -59,21 +58,22 @@ button {
 
 .insult-wrapper {
   display: grid;
-  grid-gap: 20px;
-  margin-right: 2em;
+  grid-gap: 60px;
+  margin: 0 4.7em 6em 0;
+  transform: rotate(-8deg);
 }
 
 /* insult buttons styles */
 .insults {
-  width: 70px;
-  height: 20px;
-  border-radius: 10px;
+  width: 60px;
+  height: 25px;
+  border-radius: 13px;
   box-shadow: var(--shadow);
-  transform: rotate(10deg);
+  transform: rotate(20deg);
   transition: all 0.1s ease-in;
 }
 .insults:active {
-  transform: translate(0, 2px) rotate(10deg);
+  transform: translate(0, 2px) rotate(20deg);
 }
 
 .intro {
@@ -138,28 +138,18 @@ button {
   width: 100px;
   height: 100px;
   position: absolute;
-  top: 150px;
-  left: 40px;
+  top: 110px;
+  left: 80px;
 }
 
 .question {
   font-family: 'Ultra', serif;
   background-color: var(--orange);
-  font-size: 3.5em;
+  font-size: 3em;
   color: var(--white-off);
   position: absolute;
-  top: 30px;
-  left: 20px;
-  width: 70px;
-  height: 70px;
-}
-
-.green {
-  background: chartreuse;
-  border-radius: 30px 0 0 30px;
-}
-
-.black {
-  background: black;
-  border-radius: 0 30px 30px 0;
+  top: 40px;
+  left: 45px;
+  width: 60px;
+  height: 60px;
 }
