@@ -93,6 +93,7 @@ export default function App() {
 
   return (
     <div className="app-wrapper">
+      
       <div className="app-backgrounds green">
         <button className="left-buttons question">?</button>
         <button className="left-buttons play" onClick={() => onButton()}>
