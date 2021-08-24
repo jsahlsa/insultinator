@@ -1,8 +1,19 @@
 :root {
-  --pink: hsl(346 91% 59%);
-  --blue: hsl(219 70% 30%);
-  --yellow: hsl(43 79% 53%);
-  --orange: hsl(8 98% 62%);
+  --pink: hsl(346, 91%, 54%, 1);
+  --blue: hsl(219, 70%, 25%, 1);
+  --yellow: hsl(43, 79%, 48%, 1);
+  --orange: hsl(8, 98%, 57%, 1);
+  --green: hsla(126, 80%, 33%, 1);
+  --pink-on: hsl(346, 91%, 59%, 1);
+  --blue-on: hsl(219, 70%, 30%, 1);
+  --yellow-on: hsl(43, 79%, 53%, 1);
+  --orange-on: hsl(8, 98%, 62%, 1);
+  --green-on: hsla(126, 80%, 42%, 1);
+  --white-off: hsl(0, 0%, 70%);
+  --shadow: inset 2px 2px 6px 0 rgba(255, 255, 255, 0.6),
+    inset -2px -2px 6px 0 rgba(0, 0, 0, 0.8);
+  --shadow-on: inset 2px 2px 6px 0 rgba(255, 255, 255, 0.6),
+    inset -2px -2px 6px 0 rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 html,
@@ -43,12 +54,12 @@ button {
   display: grid;
   justify-content: end;
   align-content: center;
+  position: relative;
 }
 
 .insult-wrapper {
   display: grid;
   grid-gap: 20px;
-  border: red dashed 1px;
   margin-right: 2em;
 }
 
@@ -57,10 +68,12 @@ button {
   width: 70px;
   height: 20px;
   border-radius: 10px;
-  box-shadow: inset 0 0 2px 0 rgba(255, 255, 255, 0.4),
-    inset 0 0 3px 0 rgba(0, 0, 0, 0.4), inset 0 0 3px 5px rgba(0, 0, 0, 0.05),
-    2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow);
   transform: rotate(10deg);
+  transition: all 0.1s ease-in;
+}
+.insults:active {
+  transform: translate(0, 2px) rotate(10deg);
 }
 
 .intro {
@@ -74,6 +87,71 @@ button {
 }
 .closing {
   background: var(--orange);
+}
+
+/* toggle on/off syles */
+.insults.on {
+  box-shadow: var(--shadow-on);
+}
+
+.intro.on {
+  background-color: var(--pink-on);
+}
+
+.insult-1.on {
+  --blue: var(--blue-on);
+}
+.insult-2.on {
+  --yellow: var(--yellow-on);
+}
+.closing.on {
+  --orange: var(--orange-on);
+}
+
+.left-buttons.on {
+  box-shadow: var(--shadow);
+}
+
+.play.on {
+  color: white;
+}
+.question.on {
+  color: white;
+}
+
+/* play and ? buttons */
+.left-buttons {
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease-in;
+}
+
+.left-buttons:active {
+  transform: translate(0, 2px) scale(1.05);
+}
+.play {
+  font-family: 'Kanit', sans-serif;
+  background-color: black;
+  color: var(--white-off);
+  font-size: 1.5em;
+  line-height: 1em;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 150px;
+  left: 40px;
+}
+
+.question {
+  font-family: 'Ultra', serif;
+  background-color: var(--orange);
+  font-size: 3.5em;
+  color: var(--white-off);
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
 }
 
 .green {

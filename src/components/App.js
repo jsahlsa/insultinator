@@ -34,6 +34,35 @@ let secondInsults = [wormy, boring, obnoxious, greasy, sticky, wacky, creepy2];
 let closers = [bonehead, loser, geek, dweeb, wimp, weasel, nerd];
 
 export default function App() {
+  let onOff = false;
+
+  function onButton() {
+    onOff = !onOff;
+    const pinkButton = document.querySelector('.intro');
+    const insultOneButton = document.querySelector('.insult-1');
+    const insultTwoButton = document.querySelector('.insult-2');
+    const closingButton = document.querySelector('.closing');
+    const questionButton = document.querySelector('.question');
+    const playButton = document.querySelector('.play');
+
+    console.log(onOff);
+    if (onOff) {
+      pinkButton.classList.add('on');
+      insultOneButton.classList.add('on');
+      insultTwoButton.classList.add('on');
+      closingButton.classList.add('on');
+      questionButton.classList.add('on');
+      playButton.classList.add('on');
+    } else {
+      pinkButton.classList.remove('on');
+      insultOneButton.classList.remove('on');
+      insultTwoButton.classList.remove('on');
+      closingButton.classList.remove('on');
+      questionButton.classList.remove('on');
+      playButton.classList.remove('on');
+    }
+  }
+
   function randomIndex(array) {
     let length = array.length;
     let idx = Math.floor(Math.random() * length);
@@ -44,6 +73,9 @@ export default function App() {
   let sound;
 
   function playRandom(array) {
+    if (!onOff) {
+      return;
+    }
     if (sound) {
       sound.currentTime = 0;
       sound.pause();
@@ -62,8 +94,12 @@ export default function App() {
   return (
     <div className="app-wrapper">
       <div className="app-backgrounds green">
-        <button className="left-buttons question"></button>
-        <button className="left-buttons play"></button>
+        <button className="left-buttons question">?</button>
+        <button className="left-buttons play" onClick={() => onButton()}>
+          Play
+          <br />
+          /On
+        </button>
       </div>
       <div className="app-backgrounds black">
         <div className="insult-wrapper">
