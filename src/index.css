@@ -153,3 +153,15 @@ button {
   width: 60px;
   height: 60px;
 }
+
+.speaker-line {
+  width: 6px;
+  height: 200px;
+  border-radius: 4px;
+  outline: white 1px solid;
+  box-shadow: inset 2px 1px 2px white;
+  mix-blend-mode: hue;
+  position: absolute;
+  top: 20em;
+  left: 80px;
+}

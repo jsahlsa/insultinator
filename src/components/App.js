@@ -101,6 +101,7 @@ export default function App() {
           <br />
           /On
         </button>
+        <div className="speaker-line"></div>
       </div>
       <div className="app-backgrounds black">
         <div className="insult-wrapper">
