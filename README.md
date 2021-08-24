@@ -1,4 +1,5 @@
 # 💩 Insultinator
+
 ### Online version of 90s toy
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e958c4af-27a9-46dd-bc43-3f46123438fe/deploy-status)](https://app.netlify.com/sites/insultinator-toy/deploys)

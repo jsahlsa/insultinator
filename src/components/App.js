@@ -61,7 +61,10 @@ export default function App() {
 
   return (
     <div className="app-wrapper">
-      <div className="app-backgrounds green"></div>
+      <div className="app-backgrounds green">
+        <button className="left-buttons question"></button>
+        <button className="left-buttons play"></button>
+      </div>
       <div className="app-backgrounds black">
         <div className="insult-wrapper">
           <button
