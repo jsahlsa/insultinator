@@ -42,9 +42,19 @@ button {
 .app-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background: center / contain no-repeat url('/components/images/bg.svg');
+
   height: 500px;
   width: 400px;
+}
+
+svg {
+  border: red dashed 1px;
+  width: 500px;
+  height: 500px;
+}
+
+.green-svg {
+  background: green;
 }
 
 .app-backgrounds {
