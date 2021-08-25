@@ -108,10 +108,7 @@ export default function App() {
     if (!onOff) {
       return;
     }
-    if (sound) {
-      sound.currentTime = 0;
-      sound.pause();
-    }
+
     let idx = randomIndex(array);
     if (lastIndex === idx) {
       return playRandom(array);
@@ -119,7 +116,10 @@ export default function App() {
     sound = array[idx];
     console.log(sound, idx, lastIndex);
     lastIndex = idx;
-
+    if (sound) {
+      sound.currentTime = 0;
+      sound.pause();
+    }
     sound.play();
   }
 
