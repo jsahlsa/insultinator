@@ -42,13 +42,11 @@ button {
 .app-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
-  height: 500px;
+   height: 500px;
   width: 400px;
 }
 
 svg {
-  border: red dashed 1px;
   width: 400px;
   height: 500px;
   position: absolute;
