@@ -1,32 +1,61 @@
 import React from 'react';
-import big from './sounds/big.mp3';
-import bonehead from './sounds/bonehead.mp3';
-import boring from './sounds/boring.mp3';
-import completely from './sounds/completely.mp3';
-import creepy from './sounds/creepy.mp3';
-import creepy2 from './sounds/creepy2.mp3';
-import dweeb from './sounds/dweeb.mp3';
-import geek from './sounds/geek.mp3';
-import gigantic from './sounds/gigantic.mp3';
-import greasy from './sounds/greasy.mp3';
-import gross from './sounds/gross.mp3';
-import loser from './sounds/loser.mp3';
-import nerd from './sounds/nerd.mp3';
-import obnoxious from './sounds/obnoxious.mp3';
-import real from './sounds/real.mp3';
-import slimy from './sounds/slimy.mp3';
-import slobbering from './sounds/slobbering.mp3';
-import sticky from './sounds/sticky.mp3';
-import stinky from './sounds/stinky.mp3';
-import super1 from './sounds/super1.mp3';
-import totally from './sounds/totally.mp3';
-import ugly from './sounds/ugly.mp3';
-import ultimate from './sounds/ultimate.mp3';
-import wacky from './sounds/wacky.mp3';
-import weasel from './sounds/weasel.mp3';
-import weird from './sounds/weird.mp3';
-import wimp from './sounds/wimp.mp3';
-import wormy from './sounds/wormy.mp3';
+import big1 from './sounds/big.mp3';
+import bonehead1 from './sounds/bonehead.mp3';
+import boring1 from './sounds/boring.mp3';
+import completely1 from './sounds/completely.mp3';
+import creepy1 from './sounds/creepy.mp3';
+import creepy21 from './sounds/creepy2.mp3';
+import dweeb1 from './sounds/dweeb.mp3';
+import geek1 from './sounds/geek.mp3';
+import gigantic1 from './sounds/gigantic.mp3';
+import greasy1 from './sounds/greasy.mp3';
+import gross1 from './sounds/gross.mp3';
+import loser1 from './sounds/loser.mp3';
+import nerd1 from './sounds/nerd.mp3';
+import obnoxious1 from './sounds/obnoxious.mp3';
+import real1 from './sounds/real.mp3';
+import slimy1 from './sounds/slimy.mp3';
+import slobbering1 from './sounds/slobbering.mp3';
+import sticky1 from './sounds/sticky.mp3';
+import stinky1 from './sounds/stinky.mp3';
+import super11 from './sounds/super1.mp3';
+import totally1 from './sounds/totally.mp3';
+import ugly1 from './sounds/ugly.mp3';
+import ultimate1 from './sounds/ultimate.mp3';
+import wacky1 from './sounds/wacky.mp3';
+import weasel1 from './sounds/weasel.mp3';
+import weird1 from './sounds/weird.mp3';
+import wimp1 from './sounds/wimp.mp3';
+import wormy1 from './sounds/wormy.mp3';
+
+const big = new Audio(big1);
+const bonehead = new Audio(bonehead1);
+const boring = new Audio(boring1);
+const completely = new Audio(completely1);
+const creepy = new Audio(creepy1);
+const creepy2 = new Audio(creepy21);
+const dweeb = new Audio(dweeb1);
+const geek = new Audio(geek1);
+const gigantic = new Audio(gigantic1);
+const greasy = new Audio(greasy1);
+const gross = new Audio(gross1);
+const loser = new Audio(loser1);
+const nerd = new Audio(nerd1);
+const obnoxious = new Audio(obnoxious1);
+const real = new Audio(real1);
+const slimy = new Audio(slimy1);
+const slobbering = new Audio(slobbering1);
+const sticky = new Audio(sticky1);
+const stinky = new Audio(stinky1);
+const super1 = new Audio(super11);
+const totally = new Audio(totally1);
+const ugly = new Audio(ugly1);
+const ultimate = new Audio(ultimate1);
+const wacky = new Audio(wacky1);
+const weasel = new Audio(weasel1);
+const weird = new Audio(weird1);
+const wimp = new Audio(wimp1);
+const wormy = new Audio(wormy1);
 
 let intros = [completely, ultimate, totally, gigantic, real, big, super1];
 let firstInsults = [gross, creepy, ugly, slimy, weird, slobbering, stinky];
@@ -84,11 +113,29 @@ export default function App() {
     if (lastIndex === idx) {
       return playRandom(array);
     }
-    sound = new Audio(array[idx]);
+    sound = array[idx];
     console.log(sound, idx, lastIndex);
     lastIndex = idx;
 
     sound.play();
+  }
+
+  function questionMarkButton() {
+    if (!onOff) return;
+    const sound1 = intros[randomIndex(intros)];
+    const sound2 = firstInsults[randomIndex(firstInsults)];
+    const sound3 = secondInsults[randomIndex(secondInsults)];
+    const sound4 = closers[randomIndex(closers)];
+    sound1.play();
+    sound1.onended = function () {
+      sound2.play();
+    };
+    sound2.onended = function () {
+      sound3.play();
+    };
+    sound3.onended = function () {
+      sound4.play();
+    }
   }
 
   return (
@@ -98,9 +145,10 @@ export default function App() {
         xmlnsXlink="http://www.w3.org/1999/xlink"
         width="100%"
         height="100%"
+        viewBox="0 0 252.45 324.51"
       >
-        <style>{`.green-svg { fill: green }
-                  .black-svg { fill: red }`}</style>
+        <style>{`.black-svg { fill: hsla(126, 80%, 33%, 1) }
+                  .green-svg { fill: hsla(126, 80%, 0%, 1) }`}</style>
 
         <g id="Layer_2">
           <path
@@ -122,13 +170,17 @@ export default function App() {
         </g>
       </svg>
       <div className="app-backgrounds green">
-        <button className="left-buttons question">?</button>
+        <button
+          className="left-buttons question"
+          onClick={() => questionMarkButton()}
+        >
+          ?
+        </button>
         <button className="left-buttons play" onClick={() => onButton()}>
           Play
           <br />
           /On
         </button>
-        <div className="speaker-line"></div>
       </div>
       <div className="app-backgrounds black">
         <div className="insult-wrapper">
