@@ -12,6 +12,8 @@
   --white-off: hsl(0, 0%, 70%);
   --shadow: inset 2px 2px 6px 0 rgba(255, 255, 255, 0.6),
     inset -2px -2px 6px 0 rgba(0, 0, 0, 0.8);
+  --shadow-active: inset -2px -2px 6px 0 rgba(255, 255, 255, 0.6),
+    inset 2px 2px 6px 0 rgba(0, 0, 0, 0.8);
   --shadow-on: inset 2px 2px 6px 0 rgba(255, 255, 255, 0.6),
     inset -2px -2px 6px 0 rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.3);
 }
@@ -22,6 +24,10 @@ body {
   margin: 0;
   overflow: hidden;
   box-sizing: border-box;
+}
+
+html {
+  background-image: url('./components/images/antique-white.jpg');
 }
 
 main {
@@ -42,7 +48,7 @@ button {
 .app-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-   height: 500px;
+  height: 500px;
   width: 400px;
 }
 
@@ -50,6 +56,12 @@ svg {
   width: 400px;
   height: 500px;
   position: absolute;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) brightness(100%);
+  transition: all 0.2s ease-in;
+}
+
+svg.on {
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3)) brightness(120%);
 }
 
 .green-svg {
@@ -81,8 +93,9 @@ svg {
   transform: rotate(20deg);
   transition: all 0.1s ease-in;
 }
-.insults:active {
+.insults.on:active {
   transform: translate(0, 2px) rotate(20deg);
+  box-shadow: var(--shadow-active);
 }
 
 .intro {
@@ -101,6 +114,7 @@ svg {
 /* toggle on/off syles */
 .insults.on {
   box-shadow: var(--shadow-on);
+  filter: brightness(120%);
 }
 
 .intro.on {
@@ -137,6 +151,10 @@ svg {
 
 .left-buttons:active {
   transform: translate(0, 2px) scale(1.05);
+}
+
+.left-buttons.on:active {
+  box-shadow: var(--shadow-active);
 }
 .play {
   font-family: 'Kanit', sans-serif;

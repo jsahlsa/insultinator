@@ -73,6 +73,7 @@ export default function App() {
     const closingButton = document.querySelector('.closing');
     const questionButton = document.querySelector('.question');
     const playButton = document.querySelector('.play');
+    const svgBackground = document.querySelector('svg');
 
     console.log(onOff);
     if (onOff) {
@@ -82,6 +83,7 @@ export default function App() {
       closingButton.classList.add('on');
       questionButton.classList.add('on');
       playButton.classList.add('on');
+      svgBackground.classList.add('on');
     } else {
       pinkButton.classList.remove('on');
       insultOneButton.classList.remove('on');
@@ -89,6 +91,7 @@ export default function App() {
       closingButton.classList.remove('on');
       questionButton.classList.remove('on');
       playButton.classList.remove('on');
+      svgBackground.classList.remove('on');
     }
   }
 
@@ -135,7 +138,7 @@ export default function App() {
     };
     sound3.onended = function () {
       sound4.play();
-    }
+    };
   }
 
   return (
