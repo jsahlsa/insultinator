@@ -167,6 +167,7 @@ svg.on {
   position: absolute;
   top: 110px;
   left: 80px;
+  padding: 0;
 }
 
 .question {
@@ -180,4 +181,5 @@ svg.on {
   width: 60px;
   height: 60px;
   border-radius: 2rem;
+  padding: 0;
 }
