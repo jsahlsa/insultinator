@@ -172,7 +172,7 @@ svg.on {
 .question {
   font-family: 'Ultra', serif;
   background-color: var(--orange);
-  font-size: 3em;
+  font-size: 3rem;
   color: var(--white-off);
   position: absolute;
   top: 40px;
