@@ -177,7 +177,7 @@ export default function App() {
           className="left-buttons question"
           onClick={() => questionMarkButton()}
         >
-          ?
+          &#63;
         </button>
         <button className="left-buttons play" onClick={() => onButton()}>
           Play
