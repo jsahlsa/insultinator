@@ -176,8 +176,8 @@ svg.on {
   color: var(--white-off);
   position: absolute;
   top: 40px;
-  left: 45px;
+  left: 40px;
   width: 60px;
   height: 60px;
-  border-radius: 30px;
+  border-radius: 2rem;
 }
