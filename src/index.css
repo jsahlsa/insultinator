@@ -55,6 +55,7 @@ button {
 svg {
   width: 400px;
   height: 500px;
+  border: red dashed 1px;
   position: absolute;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) brightness(100%);
   transition: all 0.2s ease-in;

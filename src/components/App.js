@@ -146,9 +146,9 @@ export default function App() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        width="100%"
-        height="100%"
-        viewBox="0 0 252.45 324.51"
+        width="252.45"
+        height="324.51"
+        viewBox="-10 -10 272 344"
       >
         <style>{`.black-svg { fill: hsla(126, 80%, 33%, 1) }
                   .green-svg { fill: hsla(126, 80%, 0%, 1) }`}</style>
