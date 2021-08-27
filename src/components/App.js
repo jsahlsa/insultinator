@@ -117,7 +117,7 @@ export default function App() {
       return playRandom(array);
     }
 
-    if (sound !== undefined) {
+    if (sound !== undefined || sound.duration > 0) {
       sound.pause();
       sound.currentTime = 0;
     }
