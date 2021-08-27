@@ -105,6 +105,10 @@ export default function App() {
 
   let lastIndex;
   let sound;
+  let sound1;
+  let sound2;
+  let sound3;
+  let sound4;
 
   function playRandom(array) {
     if (!onOff) {
@@ -116,8 +120,8 @@ export default function App() {
     if (lastIndex === idx) {
       return playRandom(array);
     }
-
-    if (sound !== undefined || sound.duration > 0) {
+    // turn off all other sounds if playing
+    if (sound !== undefined && sound.duration > 0) {
       sound.pause();
       sound.currentTime = 0;
     }
@@ -131,14 +135,10 @@ export default function App() {
     sound.play();
   }
 
-  let sound1;
-  let sound2;
-  let sound3;
-  let sound4;
-
   function questionMarkButton() {
     if (!onOff) return;
-    // get a random sound from each array
+    // turn off all other sounds if playing
+
     if (sound1 && sound1.duration > 0) {
       sound1.pause();
     }
@@ -151,6 +151,8 @@ export default function App() {
     if (sound4 && sound4.duration > 0) {
       sound4.pause();
     }
+    // get a random sound from each array
+
     sound1 = intros[randomIndex(intros)];
     sound2 = firstInsults[randomIndex(firstInsults)];
     sound3 = secondInsults[randomIndex(secondInsults)];
@@ -179,68 +181,79 @@ export default function App() {
 
   return (
     <div className="app-wrapper">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        width="252.45"
-        height="324.51"
-        viewBox="-10 -10 272 344"
-      >
-        <style>{`.black-svg { fill: hsla(126, 80%, 33%, 1) }
+      <header>
+        <h1>Insultinator!</h1>
+      </header>
+      <div className="insultinator-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          width="252.45"
+          height="324.51"
+          viewBox="-10 -10 272 344"
+        >
+          <style>{`.black-svg { fill: hsla(126, 80%, 33%, 1) }
                   .green-svg { fill: hsla(126, 80%, 0%, 1) }`}</style>
 
-        <g id="Layer_2">
-          <path
-            className="green-svg"
-            d="M79.78,1.1c0,0,63.18,6.71,94.24,17.29s39.18,25.06,43.06,31.76s26.47,50.47,32.82,116.12
+          <g id="Layer_2">
+            <path
+              className="green-svg"
+              d="M79.78,1.1c0,0,63.18,6.71,94.24,17.29s39.18,25.06,43.06,31.76s26.47,50.47,32.82,116.12
 		c6.35,65.65-1.06,113.65-1.76,124.59c-19.93-0.16-34.24-5.65-40.59-11.65c-6.35-6-12.71-32.82-15.53-46.94s-5.65-43.76-12-55.76
 		c-6.35-12-26.82-34.94-37.41-39.53c-10.59-4.59-13.41-8.12-17.29-17.65c-3.88-9.53,0.35-27.88-1.41-36.35
 		c-1.76-8.47-3.88-15.88-13.41-19.06c-9.53-3.18-20.47-7.06-24.71-11.65C81.54,47.69,76.25,28.27,79.78,1.1z"
-          />
-          <path
-            className="black-svg"
-            d="M248.13,290.86c-19.93-0.16-34.24-5.65-40.59-11.65c-6.35-6-12.71-32.82-15.53-46.94s-5.65-43.76-12-55.76
+            />
+            <path
+              className="black-svg"
+              d="M248.13,290.86c-19.93-0.16-34.24-5.65-40.59-11.65c-6.35-6-12.71-32.82-15.53-46.94s-5.65-43.76-12-55.76
 		c-6.35-12-26.82-34.94-37.41-39.53c-10.59-4.59-13.41-8.12-17.29-17.65c-3.88-9.53,0.35-27.88-1.41-36.35
 		c-1.76-8.47-3.88-15.88-13.41-19.06c-9.53-3.18-20.47-7.06-24.71-11.65c-4.24-4.59-9.53-24-6-51.18c0,0-39.18-2.47-48.71,0
 		S11.31,6.39,4.96,17.69s-5.29,28.94-3.88,35.29s3.88,21.53,6.71,27.88c2.82,6.35,8.82,34.59,9.18,50.82s-1.06,37.75-3.18,52.93
 		c-2.12,15.19-5.65,49.42-4.94,57.89c0.71,8.47-2.82,28.24,17.65,52.59c20.47,24.35,61.41,30.35,108.71,29.29
 		c47.29-1.06,92.47-0.71,100.94-10.59C244.6,303.92,248.13,290.86,248.13,290.86z"
-          />
-        </g>
-      </svg>
-      <div className="app-backgrounds green">
-        <button
-          className="left-buttons question"
-          onClick={() => questionMarkButton()}
-        >
-          &#63;
-        </button>
-        <button className="left-buttons play" onClick={() => onButton()}>
-          Play
-          <br />
-          /On
-        </button>
-      </div>
-      <div className="app-backgrounds black">
-        <div className="insult-wrapper">
+            />
+          </g>
+        </svg>
+        <div className="app-backgrounds green">
           <button
-            className="insults intro"
-            onClick={() => playRandom(intros)}
-          ></button>
-          <button
-            className="insults insult-1"
-            onClick={() => playRandom(firstInsults)}
-          ></button>
-          <button
-            className="insults insult-2"
-            onClick={() => playRandom(secondInsults)}
-          ></button>
-          <button
-            className="insults closing"
-            onClick={() => playRandom(closers)}
-          ></button>
+            className="left-buttons question"
+            onClick={() => questionMarkButton()}
+          >
+            &#63;
+          </button>
+          <button className="left-buttons play" onClick={() => onButton()}>
+            Play
+            <br />
+            /On
+          </button>
+        </div>
+        <div className="app-backgrounds black">
+          <div className="insult-wrapper">
+            <button
+              className="insults intro"
+              onClick={() => playRandom(intros)}
+            ></button>
+            <button
+              className="insults insult-1"
+              onClick={() => playRandom(firstInsults)}
+            ></button>
+            <button
+              className="insults insult-2"
+              onClick={() => playRandom(secondInsults)}
+            ></button>
+            <button
+              className="insults closing"
+              onClick={() => playRandom(closers)}
+            ></button>
+          </div>
         </div>
       </div>
+      <footer>
+        <p>
+          Made with ☕ by{' '}
+          <a href="https://github.com/jsahlsa/insultinator" target='_blank'>jsahlsa</a>
+        </p>
+      </footer>
     </div>
   );
 }

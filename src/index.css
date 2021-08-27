@@ -28,6 +28,8 @@ body {
 
 html {
   background-image: url('./components/images/antique-white.jpg');
+  text-align: center;
+  font-family: 'Kanit';
 }
 
 main {
@@ -38,7 +40,6 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
-  height: 100vh;
 }
 
 button {
@@ -47,9 +48,48 @@ button {
 
 .app-wrapper {
   display: grid;
+  justify-content: center;
+  align-content: space-around;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100vh;
+}
+
+.insultinator-container {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   height: 500px;
   width: 400px;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 1em 0 0 0;
+  color: var(--orange);
+  -webkit-text-stroke: 1px white;
+  text-shadow: 2px 2px 5px gray;
+  transform: scale(1.2, 2) skew(20deg, 1deg);
+  letter-spacing: 2px;
+}
+
+footer {
+  font-weight: 400;
+  display: grid;
+  align-content: end;
+}
+
+a {
+  text-decoration: none;
+  color: var(--pink-on);
+  box-shadow: 0 3px 0 var(--pink-on);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+a:hover {
+  box-shadow: 0 5px 0 var(--pink-on);
+}
+
+a:active {
+  transform: translateY(1px);
 }
 
 svg {
@@ -157,6 +197,7 @@ svg.on {
 }
 .play {
   font-family: 'Kanit', sans-serif;
+  font-weight: 900;
   background-color: black;
   color: var(--white-off);
   font-size: 1.5em;
