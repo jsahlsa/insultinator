@@ -1,4 +1,5 @@
 import React from 'react';
+// import each sound
 import big1 from './sounds/big.mp3';
 import bonehead1 from './sounds/bonehead.mp3';
 import boring1 from './sounds/boring.mp3';
@@ -27,7 +28,7 @@ import weasel1 from './sounds/weasel.mp3';
 import weird1 from './sounds/weird.mp3';
 import wimp1 from './sounds/wimp.mp3';
 import wormy1 from './sounds/wormy.mp3';
-
+// convert each to audio to here vs. in function to avoid lag
 const big = new Audio(big1);
 const bonehead = new Audio(bonehead1);
 const boring = new Audio(boring1);
@@ -56,15 +57,16 @@ const weasel = new Audio(weasel1);
 const weird = new Audio(weird1);
 const wimp = new Audio(wimp1);
 const wormy = new Audio(wormy1);
-
+// arrays for each button
 let intros = [completely, ultimate, totally, gigantic, real, big, super1];
 let firstInsults = [gross, creepy, ugly, slimy, weird, slobbering, stinky];
 let secondInsults = [wormy, boring, obnoxious, greasy, sticky, wacky, creepy2];
 let closers = [bonehead, loser, geek, dweeb, wimp, weasel, nerd];
-
+// Todo: make component for insul button
+// make data set for each insult button
 export default function App() {
   let onOff = false;
-
+  // gives the machine the appearance that it has turned on or off
   function onButton() {
     onOff = !onOff;
     const pinkButton = document.querySelector('.intro');
@@ -94,7 +96,7 @@ export default function App() {
       svgBackground.classList.remove('on');
     }
   }
-
+  // simple random function
   function randomIndex(array) {
     let length = array.length;
     let idx = Math.floor(Math.random() * length);
@@ -110,33 +112,67 @@ export default function App() {
     }
 
     let idx = randomIndex(array);
+    // ensures sounds do not duplicate
     if (lastIndex === idx) {
       return playRandom(array);
     }
+
+    if (sound !== undefined) {
+      sound.pause();
+      sound.currentTime = 0;
+    }
+
+    // gets a random sound,
     sound = array[idx];
     console.log(sound, idx, lastIndex);
     lastIndex = idx;
-
-    sound.currentTime = 0;
-    sound.pause();
+    // so sounds do not overlap
 
     sound.play();
   }
 
+  let sound1;
+  let sound2;
+  let sound3;
+  let sound4;
+
   function questionMarkButton() {
     if (!onOff) return;
-    const sound1 = intros[randomIndex(intros)];
-    const sound2 = firstInsults[randomIndex(firstInsults)];
-    const sound3 = secondInsults[randomIndex(secondInsults)];
-    const sound4 = closers[randomIndex(closers)];
+    // get a random sound from each array
+    if (sound1 && sound1.duration > 0) {
+      sound1.pause();
+    }
+    if (sound2 && sound2.duration > 0) {
+      sound2.pause();
+    }
+    if (sound3 && sound3.duration > 0) {
+      sound3.pause();
+    }
+    if (sound4 && sound4.duration > 0) {
+      sound4.pause();
+    }
+    sound1 = intros[randomIndex(intros)];
+    sound2 = firstInsults[randomIndex(firstInsults)];
+    sound3 = secondInsults[randomIndex(secondInsults)];
+    sound4 = closers[randomIndex(closers)];
+
+    // automatically play one after the other
+    sound1.pause();
+    sound1.currentTime = 0;
     sound1.play();
     sound1.onended = function () {
+      sound2.pause();
+      sound2.currentTime = 0;
       sound2.play();
     };
     sound2.onended = function () {
+      sound3.pause();
+      sound3.currentTime = 0;
       sound3.play();
     };
     sound3.onended = function () {
+      sound4.pause();
+      sound4.currentTime = 0;
       sound4.play();
     };
   }
