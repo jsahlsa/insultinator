@@ -1,4 +1,5 @@
 import React from 'react';
+import InsultButton from './InsultButton';
 // import each sound
 import big1 from './sounds/big.mp3';
 import bonehead1 from './sounds/bonehead.mp3';
@@ -64,6 +65,29 @@ let secondInsults = [wormy, boring, obnoxious, greasy, sticky, wacky, creepy2];
 let closers = [bonehead, loser, geek, dweeb, wimp, weasel, nerd];
 // Todo: make component for insul button
 // make data set for each insult button
+const DATA = [
+  {
+    name: 'intros',
+    class: 'intro insults',
+    sounds: intros,
+  },
+  {
+    name: 'insult1',
+    class: 'insult-1 insults',
+    sounds: firstInsults,
+  },
+  {
+    name: 'insult2',
+    class: 'insult-2 insults',
+    sounds: secondInsults,
+  },
+  {
+    name: 'closers',
+    class: 'closing insults',
+    sounds: closers,
+  },
+];
+
 export default function App() {
   let onOff = false;
   // gives the machine the appearance that it has turned on or off
@@ -103,37 +127,10 @@ export default function App() {
     return idx;
   }
 
-  let lastIndex;
-  let sound;
   let sound1;
   let sound2;
   let sound3;
   let sound4;
-
-  function playRandom(array) {
-    if (!onOff) {
-      return;
-    }
-
-    let idx = randomIndex(array);
-    // ensures sounds do not duplicate
-    if (lastIndex === idx) {
-      return playRandom(array);
-    }
-    // turn off all other sounds if playing
-    if (sound !== undefined && sound.duration > 0) {
-      sound.pause();
-      sound.currentTime = 0;
-    }
-
-    // gets a random sound,
-    sound = array[idx];
-    console.log(sound, idx, lastIndex);
-    lastIndex = idx;
-    // so sounds do not overlap
-
-    sound.play();
-  }
 
   function questionMarkButton() {
     if (!onOff) return;
@@ -229,29 +226,25 @@ export default function App() {
         </div>
         <div className="app-backgrounds black">
           <div className="insult-wrapper">
-            <button
-              className="insults intro"
-              onClick={() => playRandom(intros)}
-            ></button>
-            <button
-              className="insults insult-1"
-              onClick={() => playRandom(firstInsults)}
-            ></button>
-            <button
-              className="insults insult-2"
-              onClick={() => playRandom(secondInsults)}
-            ></button>
-            <button
-              className="insults closing"
-              onClick={() => playRandom(closers)}
-            ></button>
+            {DATA.map((insultButton) => {
+              return (
+                <InsultButton
+                  name={insultButton.name}
+                  class={insultButton.class}
+                  key={insultButton.name}
+                  sound={insultButton.sounds}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
       <footer>
         <p>
           Made with ☕ by{' '}
-          <a href="https://github.com/jsahlsa/insultinator" target='_blank'>jsahlsa</a>
+          <a href="https://github.com/jsahlsa/insultinator" target="_blank">
+            jsahlsa
+          </a>
         </p>
       </footer>
     </div>
