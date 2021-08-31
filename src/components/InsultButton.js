@@ -32,7 +32,6 @@ export default function InsultButton(props) {
     // so sounds do not overlap
     sound.currentTime = 0;
     sound.pause();
-    console.log(sound);
     sound.play();
   }
   return (
