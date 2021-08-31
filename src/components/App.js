@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import InsultButton from './InsultButton';
 // import each sound
 import big1 from './sounds/big.mp3';
@@ -89,10 +90,11 @@ const DATA = [
 ];
 
 export default function App() {
-  let onOff = false;
+  const [onOff, setOnOff] = useState(true);
+
   // gives the machine the appearance that it has turned on or off
   function onButton() {
-    onOff = !onOff;
+    setOnOff(!onOff);
     const pinkButton = document.querySelector('.intro');
     const insultOneButton = document.querySelector('.insult-1');
     const insultTwoButton = document.querySelector('.insult-2');
@@ -100,8 +102,6 @@ export default function App() {
     const questionButton = document.querySelector('.question');
     const playButton = document.querySelector('.play');
     const svgBackground = document.querySelector('svg');
-
-    console.log(onOff);
     if (onOff) {
       pinkButton.classList.add('on');
       insultOneButton.classList.add('on');
@@ -133,7 +133,7 @@ export default function App() {
   let sound4;
 
   function questionMarkButton() {
-    if (!onOff) return;
+    if (onOff) return;
     // turn off all other sounds if playing
 
     if (sound1 && sound1.duration > 0) {
@@ -233,6 +233,7 @@ export default function App() {
                   class={insultButton.class}
                   key={insultButton.name}
                   sound={insultButton.sounds}
+                  onOff={onOff}
                 />
               );
             })}

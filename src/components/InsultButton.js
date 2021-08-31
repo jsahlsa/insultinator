@@ -10,9 +10,12 @@ export default function InsultButton(props) {
   let lastIndex;
 
   function playRandom() {
+    if (props.onOff) return;
     let idx = randomIndex(props.sound);
+
     // ensures sounds do not duplicate
     if (idx === lastIndex && props.sound.length > 1) {
+      console.log(idx, lastIndex);
       return playRandom();
     }
 
