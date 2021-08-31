@@ -132,6 +132,8 @@ svg.on {
   box-shadow: var(--shadow);
   transform: rotate(20deg);
   transition: all 0.1s ease-in;
+  backface-visibility: hidden;
+  perspective: 1000;
 }
 .insults.on:active {
   transform: translate(0, 2px) rotate(20deg);
@@ -186,6 +188,8 @@ svg.on {
 .left-buttons {
   box-shadow: var(--shadow);
   transition: all 0.2s ease-in;
+  backface-visibility: hidden;
+  perspective: 1000;
 }
 
 .left-buttons:active {
