@@ -149,39 +149,44 @@ svg.on {
 
 .intro {
   background: var(--pink);
-  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 .insult-1 {
   background: var(--blue);
-  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 .insult-2 {
   background: var(--yellow);
-  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 .closing {
   background: var(--orange);
-  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 /* toggle on/off syles */
 .insults.on {
   box-shadow: var(--shadow-on);
   filter: brightness(120%);
+  backface-visibility: hidden;
 }
 
 .intro.on {
   background-color: var(--pink-on);
+  backface-visibility: hidden;
 }
 
 .insult-1.on {
   --blue: var(--blue-on);
+  backface-visibility: hidden;
 }
 .insult-2.on {
   --yellow: var(--yellow-on);
+  backface-visibility: hidden;
 }
 .closing.on {
   --orange: var(--orange-on);
+  backface-visibility: hidden;
 }
 
 .left-buttons.on {
