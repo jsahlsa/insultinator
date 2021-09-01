@@ -136,6 +136,7 @@ svg.on {
   transition: all 0.1s ease-in;
   backface-visibility: hidden;
   perspective: 1000;
+  padding: 0;
 }
 .insults.on:active {
   transform: translate(0, 2px) rotate(20deg);
