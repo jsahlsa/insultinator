@@ -40,6 +40,7 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
+  -webkit-transform:translate3d(0,0,0);
 }
 
 button {
