@@ -122,6 +122,8 @@ svg.on {
   grid-gap: 60px;
   margin: 0 4.7em 6em 0;
   transform: rotate(-8deg);
+  backface-visibility: hidden;
+  perspective: 1000;
 }
 
 /* insult buttons styles */
@@ -138,6 +140,8 @@ svg.on {
 .insults.on:active {
   transform: translate(0, 2px) rotate(20deg);
   box-shadow: var(--shadow-active);
+  backface-visibility: hidden;
+  perspective: 1000;
 }
 
 .intro {

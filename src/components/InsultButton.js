@@ -19,12 +19,12 @@ export default function InsultButton(props) {
       return playRandom();
     }
 
-    const sound = props.sound[idx];
     // turn off all other sounds if playing
     if (sound !== undefined && sound.duration > 0) {
       sound.pause();
       sound.currentTime = 0;
     }
+    const sound = props.sound[idx];
 
     // gets a random sound,
     //console.log(sound, idx, lastIndex);
