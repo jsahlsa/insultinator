@@ -8,9 +8,16 @@ export default function InsultButton(props) {
   }
 
   let lastIndex;
+  let sound;
 
   function playRandom() {
     if (props.onOff) return;
+    if (props.sound !== undefined && props.sound.duration > 0) {
+      props.sound.pause();
+      props.sound.currentTime = 0;
+      console.log(props.sound.duration);
+    }
+
     let idx = randomIndex(props.sound);
 
     // ensures sounds do not duplicate
@@ -18,14 +25,10 @@ export default function InsultButton(props) {
       console.log(idx, lastIndex);
       return playRandom();
     }
-
+    console.log(sound, 1);
     // turn off all other sounds if playing
-    if (sound !== undefined && sound.duration > 0) {
-      sound.pause();
-      sound.currentTime = 0;
-    }
-    const sound = props.sound[idx];
-
+    sound = props.sound[idx];
+    console.log(sound, 3, idx);
     // gets a random sound,
     //console.log(sound, idx, lastIndex);
     lastIndex = idx;
