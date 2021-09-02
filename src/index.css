@@ -41,6 +41,7 @@ body {
   justify-content: center;
   align-content: center;
   -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 button {
@@ -96,7 +97,7 @@ a:active {
 svg {
   width: 400px;
   height: 500px;
-  position: absolute;
+  position: relative;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) brightness(100%);
   transition: all 0.2s ease-in;
 }
@@ -125,6 +126,9 @@ svg.on {
   transform: rotate(-8deg);
   backface-visibility: hidden;
   perspective: 1000;
+  position: absolute;
+  top: -430px;
+  left: 269px;
 }
 
 /* insult buttons styles */
@@ -139,6 +143,7 @@ svg.on {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   perspective: 1000;
   padding: 0;
 }
@@ -229,7 +234,7 @@ svg.on {
   border-radius: 50px;
   position: absolute;
   top: 110px;
-  left: 80px;
+  left: -317px;
   padding: 0;
 }
 
@@ -240,7 +245,7 @@ svg.on {
   color: var(--white-off);
   position: absolute;
   top: 40px;
-  left: 40px;
+  left: -355px;
   width: 60px;
   height: 60px;
   border-radius: 2rem;
